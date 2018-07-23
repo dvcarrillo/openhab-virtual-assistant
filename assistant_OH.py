@@ -171,8 +171,10 @@ class MyAssistant(object):
             # Start the voicehat button trigger.
             aiy.voicehat.get_button().on_press(self._on_button_pressed)
             if sys.stdout.isatty():
-                print('Say "OK, Google" or press the button, then speak. '
-                      'Press Ctrl+C to quit...')
+                print('\nSay "OK, Google" or press the button, then speak. '
+                      '\nTrigger the openHAB actions by saying \"' + custom_hotword + 
+                      '\" at the beginning of each command.'
+                      '\nPress Ctrl+C to quit.\n')
 
         elif event.type == EventType.ON_CONVERSATION_TURN_STARTED:
             self._can_start_conversation = False
