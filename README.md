@@ -1,4 +1,4 @@
-# Google AIY Voice Kit and openHAB 2 💬
+# Google AIY Voice Kit and openHAB 2
 This script is an adaptation of the ones that come with the 
 [Google AIY Voice Kit](https://aiyprojects.withgoogle.com/voice/), including custom commands
 that can be sent to openHAB 2, so you can manage your smart home directly from your Voice Kit.
