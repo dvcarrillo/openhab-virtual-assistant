@@ -47,4 +47,4 @@ and execute this script with Python 3. Follow the instructions on screen and enj
 
 ## 
 *This work is part of my BSc End Project (TFG) about the creation of a voice-driven controller
-for home automation on Raspberry Pi*
+for home automation on Raspberry Pi.*
