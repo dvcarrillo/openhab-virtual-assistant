@@ -27,7 +27,7 @@ The Google Assistant Library can be installed with:
 
 It is available for Raspberry Pi 2/3 only; Pi Zero is not supported.
 
-Modified from Google AIY demo scripts by dvcarrillo
+Modified from Google AIY demo scripts by David Vargas (https://github.com/dvcarrillo)
 """
 
 import logging
@@ -44,6 +44,10 @@ from google.assistant.library import Assistant
 from google.assistant.library.event import EventType
 
 # ---- CONFIGURATION ----
+# openHAB server location
+openhab_ip = "localhost"
+openhab_port = "8080"
+
 # Set the group containing all the lights
 all_lights_group = 'Lights_ALL'
 
@@ -71,7 +75,7 @@ logging.basicConfig(
 # -- OpenHAB 2 commands using OpenHAB REST API --
 
 def openhab_send(item, state):
-    url = 'http://localhost:8080/rest/items/' + item
+    url = 'http://' + openhab_ip + ':' + openhab_port + '/rest/items/' + item
     headers = { 'content-type': 'text/plain',
                 'accept': 'application/json' }
     r = requests.post(url, headers=headers, data=state)
@@ -93,7 +97,7 @@ def openhab_send(item, state):
         aiy.audio.say('Command failed')
 
 def openhab_get_state(item):
-    url = 'http://localhost:8080/rest/items/' + item + '/state'
+    url = 'http://' + openhab_ip + ':' + openhab_port + '/rest/items/' + item + '/state'
     r = requests.get(url)
     return r.text
 
