@@ -266,7 +266,12 @@ class MyAssistant(object):
                             direct_to_color = light_colors[idx]
                             current_state = openhab_get_state(direct_to_color)
                             current_state = current_state.split(',')
-                            new_state = current_state[0] + ',' + current_state[1] + ',' + current_state[2] + 20
+
+                            new_brightness = int(current_state[2]) + 25
+                            if (new_brightness > 100):
+                                new_brightness = 100
+                            
+                            new_state = current_state[0] + ',' + current_state[1] + ',' + str(new_brightness)
                             openhab_send(direct_to_color, new_state)
                         else:
                             device_not_found()
@@ -281,7 +286,12 @@ class MyAssistant(object):
                             direct_to_color = light_colors[idx]
                             current_state = openhab_get_state(direct_to_color)
                             current_state = current_state.split(',')
-                            new_state = current_state[0] + ',' + current_state[1] + ',' + current_state[2] - 20
+                           
+                            new_brightness = int(current_state[2]) - 25
+                            if (new_brightness < 0):
+                                new_brightness = 0
+                            
+                            new_state = current_state[0] + ',' + current_state[1] + ',' + str(new_brightness)
                             openhab_send(direct_to_color, new_state)
                         else:
                             device_not_found()
