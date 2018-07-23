@@ -212,34 +212,25 @@ class MyAssistant(object):
                         if (idx != None):
                             direct_to_color = light_colors[idx]
                             direct_to_color_temp = light_color_temps[idx]
+                            current_state = openhab_get_state(direct_to_color).split(',')
 
                             if ' on ' in text:
                                 openhab_send(direct_to_color, 'ON')
                             elif ' off ' in text:
                                 openhab_send(direct_to_color, 'OFF')
                             elif ' red ' in text:
-                                current_state = openhab_get_state(direct_to_color)
-                                current_state = current_state.split(',')
                                 new_state = "0,100," + current_state[2]
                                 openhab_send(direct_to_color, new_state)
                             elif ' yellow ' in text:
-                                current_state = openhab_get_state(direct_to_color)
-                                current_state = current_state.split(',')
                                 new_state = "100,100," + current_state[2]
                                 openhab_send(direct_to_color, new_state)
                             elif ' blue ' in text:
-                                current_state = openhab_get_state(direct_to_color)
-                                current_state = current_state.split(',')
                                 new_state = "260,100," + current_state[2]
                                 openhab_send(direct_to_color, new_state)
                             elif ' pink ' in text:
-                                current_state = openhab_get_state(direct_to_color)
-                                current_state = current_state.split(',')
                                 new_state = "340,100," + current_state[2]
                                 openhab_send(direct_to_color, new_state)
                             elif ' green ' in text:
-                                current_state = openhab_get_state(direct_to_color)
-                                current_state = current_state.split(',')
                                 new_state = "140,100," + current_state[2]
                                 openhab_send(direct_to_color, new_state)
                             elif ' cool ' in text:
@@ -266,8 +257,7 @@ class MyAssistant(object):
                         idx = any_idx(token in text for token in lights_ids)
                         if (idx != None):
                             direct_to_color = light_colors[idx]
-                            current_state = openhab_get_state(direct_to_color)
-                            current_state = current_state.split(',')
+                            current_state = openhab_get_state(direct_to_color).split(',')
 
                             new_brightness = int(current_state[2]) + 25
                             if (new_brightness > 100):
@@ -286,8 +276,7 @@ class MyAssistant(object):
                         idx = any_idx(token in text for token in lights_ids)
                         if (idx != None):
                             direct_to_color = light_colors[idx]
-                            current_state = openhab_get_state(direct_to_color)
-                            current_state = current_state.split(',')
+                            current_state = openhab_get_state(direct_to_color).split(',')
                            
                             new_brightness = int(current_state[2]) - 25
                             if (new_brightness < 0):
