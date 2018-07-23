@@ -45,5 +45,6 @@ Please note that this script is **only supported in Raspberry Pi 2 and 3**.
 Clone this repo into your Voice Kit, configure it (take a look at `CONFIGURATION` inside the code)
 and execute this script with Python 3. Follow the instructions on screen and enjoy!
 
+## 
 *This work is part of my BSc End Project (TFG) about the creation of a voice-driven controller
-for home automation on Raspberry Pi*
+for home automation on Raspberry Pi.*
