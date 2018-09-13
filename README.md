@@ -46,5 +46,5 @@ Clone this repo into your Voice Kit, configure it (take a look at `CONFIGURATION
 and execute this script with Python 3. Follow the instructions on screen and enjoy!
 
 ## 
-*This work is part of my BSc End Project (TFG) about the creation of a voice-driven controller
-for home automation on Raspberry Pi.*
+*This work is part of my [BSc End Project (TFG)](https://github.com/dvcarrillo/home-assistant) about the creation 
+of a voice-driven controller for home automation*
